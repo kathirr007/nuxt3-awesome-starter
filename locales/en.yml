@@ -9,6 +9,10 @@ pages:
     title: nuxt 3[]awesome[]starter
   404:
     title: page not found
+  services:
+    nav: services
+    title: services
+    description: services description
   blank:
     nav: blank
     title: blank page

@@ -16,6 +16,8 @@ declare module '@vue/runtime-core' {
     'IconLa:language': typeof import('~icons/la/language')['default']
     'IconMaterialSymbols:contentCopyOutline': typeof import('~icons/material-symbols/content-copy-outline')['default']
     'IconMdi:checkCircle': typeof import('~icons/mdi/check-circle')['default']
+    'IconMdi:chevronDown': typeof import('~icons/mdi/chevron-down')['default']
+    'IconMdi:chevronUp': typeof import('~icons/mdi/chevron-up')['default']
     'IconMdi:githubFace': typeof import('~icons/mdi/github-face')['default']
     'IconSimpleIcons:nuxtdotjs': typeof import('~icons/simple-icons/nuxtdotjs')['default']
     'IconUil:angleDown': typeof import('~icons/uil/angle-down')['default']

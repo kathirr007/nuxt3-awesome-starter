@@ -82,7 +82,7 @@ const toggleOptions = (show?: boolean) => {
           <slot name="title">
             <NuxtLink
               tag="a"
-              class="mr-3 flex-none overflow-hidden md:w-auto text-md font-bold text-gray-900 dark:text-gray-200"
+              class="mr-3 flex-none overflow-hidden md:w-auto text-lg font-bold text-gray-900 dark:text-gray-200"
               :to="{ name: 'index' }"
             >
               <span class="sr-only">home</span>

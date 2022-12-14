@@ -1,7 +1,7 @@
 export default defineAppConfig({
-  name: 'Nuxt 3 Awesome Starter',
+  name: 'Elite Solar Solutions',
   author: {
-    name: 'viandwi24',
-    link: 'https://github.com/viandwi24',
+    name: 'muthuprasath',
+    link: 'https://github.com/Elitesolarcctv',
   },
 })
