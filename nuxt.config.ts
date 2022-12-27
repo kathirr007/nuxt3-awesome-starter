@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 
   // build
   build: {
-    transpile: ['@headlessui/vue'],
+    transpile: ['@headlessui/vue', 'vue-toastification'],
   },
 
   // modules
