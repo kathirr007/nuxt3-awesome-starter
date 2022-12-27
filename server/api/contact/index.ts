@@ -4,13 +4,14 @@ import { mailTemplateFooter, mailTemplateHead } from '@/utils/mailTemplate'
 
 // import validator from 'validator';
 const config = useRuntimeConfig()
+const isProd = process.env.NODE_ENV === 'production'
 
 const transporter = createTransport({
-  host: config.MAILHOST,
-  port: config.MAILPORT,
+  host: isProd ? process.env.MAILHOST : config.MAILHOST,
+  port: isProd ? process.env.MAILPORT : config.MAILPORT,
   auth: {
-    user: config.MAILUSER,
-    pass: config.MAILPASSWORD,
+    user: isProd ? process.env.MAILUSER : config.MAILUSER,
+    pass: isProd ? process.env.MAILPASSWORD : config.MAILPASSWORD,
   },
 } as TransportOptions)
 
@@ -25,7 +26,7 @@ export default defineEventHandler(async (e) => {
 
     const mailOptions = {
       from: `"${body.name}" <${body.email}>`,
-      to: config.CONTACTMAIL,
+      to: isProd ? process.env.CONTACTMAIL : config.CONTACTMAIL,
       subject: `${body.appName ? body.appName : 'Elite Solar Solutions'} |
        Enquiry Details`,
       text: body.message,
@@ -35,7 +36,9 @@ export default defineEventHandler(async (e) => {
     // console.log(mailOptions)
 
     const mailToOptions = {
-      from: `"Kathirr007" <${config.CONTACTMAIL}>`,
+      from: `"Kathirr007" <${
+        isProd ? process.env.CONTACTMAIL : config.CONTACTMAIL
+      }>`,
       to: `"${body.name}" <${body.email}>`,
       subject: `Thank you | ${
         body.appName ? body.appName : 'Elite Solar Solutions'
