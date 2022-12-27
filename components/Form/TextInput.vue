@@ -17,9 +17,11 @@ const props = defineProps({
     type: String,
     default: 'default',
   },
+  inputClass: { type: String, default: '' },
 })
 const emit = defineEmits(['update:modelValue'])
 const slots = useSlots()
+const attrs = useAttrs()
 
 // list styles
 const paddingStyles = reactive<{
@@ -77,12 +79,16 @@ const selectedFontSizeStyle = computed(
     </div>
     <div class="text-input-wrapper relative flex flex-1">
       <input
+        v-bind="attrs"
         v-model="modelValue"
-        :class="`text-input w-full flex-1 bg-transparent outline-none border ${
-          havePreEl ? '' : 'rounded-l'
-        } ${
-          haveSuEl ? '' : 'rounded-r'
-        } ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`"
+        :class="[
+          `text-input w-full flex-1  outline-none border ${
+            havePreEl ? '' : 'rounded-l'
+          } ${
+            haveSuEl ? '' : 'rounded-r'
+          } ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`,
+          inputClass,
+        ]"
         :type="type"
         :placeholder="placeholder"
       />

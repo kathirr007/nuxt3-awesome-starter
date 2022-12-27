@@ -8,7 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="text-4xl font-bold">
-    <slot>{{ text }}</slot>
+  <div class="">
+    <slot>
+      <h1 class="text-4xl md:text-5xl font-bold">
+        {{ text }}
+      </h1>
+    </slot>
   </div>
 </template>

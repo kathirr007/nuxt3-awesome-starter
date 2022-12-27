@@ -6,12 +6,22 @@ components:
     change_theme: change theme
 pages:
   index:
-    title: nuxt 3[]awesome[]starter
+    title: elite[]solar[]solutions
   404:
     title: page not found
+  about:
+    nav: about
+    title: about elite solar solutions
+    description: about us description
+  contact:
+    nav: contact
+    btnText: Enquire Today
+    title: contact elite solar solutions
+    description: contact us description
   services:
     nav: services
-    title: services
+    pageTitle: services
+    title: our services
     description: services description
   blank:
     nav: blank
@@ -32,10 +42,10 @@ pages:
     reset: reset
     identity: identity
     full_name: fullName
-  getting-started:
-    nav: getting started
-    title: getting started
-    description: this is a getting started page
+  home:
+    nav: home
+    title: home
+    description: this is a home page
   setting:
     nav: setting
     title: setting

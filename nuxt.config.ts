@@ -6,6 +6,22 @@ export default defineNuxtConfig({
   // server side rendering mode
   ssr: true,
 
+  // environment variables
+  runtimeConfig: {
+    // Private keys are only available on the server
+    MAILHOST: process.env.MAILHOST,
+    MAILPORT: process.env.MAILPORT,
+    MAILUSER: process.env.MAILUSER,
+    MAILPASSWORD: process.env.MAILPASSWORD,
+    CONTACTMAIL: process.env.CONTACTMAIL,
+    app: {},
+    // Public keys that are exposed to the client
+    public: {
+      emailUser: process.env.USER,
+      emailPwd: process.env.PASSWORD,
+    },
+  },
+
   // typescripts
   typescript: {
     strict: true,
@@ -34,9 +50,10 @@ export default defineNuxtConfig({
     'unplugin-icons/nuxt',
     '@intlify/nuxt3',
     '@pinia/nuxt',
-    '@nuxt/content',
+    // '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-windicss',
+    // 'floating-vue/nuxt',
   ],
 
   // experimental features
@@ -74,7 +91,7 @@ export default defineNuxtConfig({
     vueI18n: {
       locale: 'en',
       fallbackLocale: 'en',
-      availableLocales: ['en', 'id', 'ja', 'ko'],
+      availableLocales: ['en'],
     },
   },
 

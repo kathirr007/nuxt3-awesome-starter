@@ -6,16 +6,17 @@ AppSetup()
 const theme = useState<ITheme>('theme.current')
 const locale = useState<string>('locale.setting')
 const app = useAppConfig() as AppConfigInput
+const route = useRoute()
 
 useHead({
   title: app.name,
-  titleTemplate: '%s - Nuxt 3 Awesome Starter',
+  titleTemplate: '%s | Elite Solar Solutions',
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     {
       hid: 'description',
       name: 'description',
-      content: 'Nuxt 3 Awesome Starter',
+      content: 'Elite Solar Solutions',
     },
   ],
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -29,8 +30,12 @@ useHead({
     >
       <NuxtLayout>
         <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
-        <NuxtPage />
+        <NuxtPage :page-key="route.fullPath" />
       </NuxtLayout>
     </Body>
   </Html>
+  <!-- <NuxtLayout>
+    <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
+    <NuxtPage />
+  </NuxtLayout> -->
 </template>

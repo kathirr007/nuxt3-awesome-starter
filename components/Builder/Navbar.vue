@@ -51,9 +51,9 @@ const toggleOptions = (show?: boolean) => {
 <template>
   <div
     ref="navbar"
-    class="backdrop-filter backdrop-blur-md top-0 z-40 w-full flex-none transition-colors duration-300 lg:z-50 border-b border-gray-900/10 dark:border-gray-50/[0.2] bg-white/[0.5] dark:bg-slate-900/[0.5]"
+    class="backdrop-filter top-0 backdrop-blur-md z-40 w-full flex-none transition-colors duration-300 lg:z-50 border-b border-gray-900/10 dark:border-gray-50/[0.2] bg-white/[0.5] dark:bg-slate-900/[0.5]"
   >
-    <div id="navbar-banner" class="banner">
+    <div id="navbar-banner" class="banner transition bg-sky-800">
       <slot name="banner" />
     </div>
     <div class="max-w-8xl w-full mx-auto">
@@ -160,11 +160,17 @@ const toggleOptions = (show?: boolean) => {
 a.router-link-active {
   font-weight: bold;
 }
+
+.router-link-exact-active,
 a.router-link-exact-active {
+  font-weight: 700;
   color: theme('colors.slate.900');
 }
+
 html.dark {
+  .router-link-exact-active,
   a.router-link-exact-active {
+    font-weight: 700;
     color: theme('colors.white');
   }
 }
