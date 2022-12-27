@@ -1,19 +1,5 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  CloudArrowUpIcon,
-  CogIcon,
-  LockClosedIcon,
-  ServerIcon,
-  ShieldCheckIcon,
-  XMarkIcon,
-} from '@heroicons/vue/24/outline'
-import {
-  ArrowTopRightOnSquareIcon,
-  ChevronRightIcon,
-} from '@heroicons/vue/20/solid'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -472,7 +458,8 @@ const Email = ref()
                       class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-gray-900 hover:bg-gray-50"
                     >
                       Visit the help center
-                      <ArrowTopRightOnSquareIcon
+                      <Icon
+                        :icon="'fa-solid:external-link-alt'"
                         class="-mr-1 ml-3 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       />
