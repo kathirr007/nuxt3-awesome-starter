@@ -53,7 +53,7 @@ export default defineEventHandler(async (e) => {
       data: {},
     })
 
-    transporter.sendMail(mailOptions, function (err, res) {
+    await transporter.sendMail(mailOptions, function (err, res) {
       if (err) {
         console.log(err)
         sendError(e, EmailSendError)
