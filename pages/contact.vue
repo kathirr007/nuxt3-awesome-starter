@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
 import { useField, useForm } from 'vee-validate'
-import { useToast } from 'vue-toastification'
+import { useToast } from 'vue-toastification/dist/index.mjs'
 import { useCounter } from '~/stores/counter'
 import { useIdentity } from '~/stores/identity'
 import { capitalize } from '~/utils/str'
