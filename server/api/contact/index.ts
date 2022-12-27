@@ -52,22 +52,16 @@ export default defineEventHandler(async (e) => {
 
     transporter.sendMail(mailOptions, function (err, res) {
       if (err) {
-        console.log(err)
         sendError(e, EmailSendError)
       } else {
         console.log(`Email has been sent Successfully`)
-        if (body.email) {
-          transporter.sendMail(mailToOptions, function (err, res) {
-            if (err) {
-              console.log(err)
-              sendError(e, EmailSendError)
-            } else {
-              console.log(`Email to the user has been sent Successfully`)
-              return `Email to the user has been sent Successfully`
-            }
-          })
-        }
-        return `Email has been sent Successfully`
+        transporter.sendMail(mailToOptions, function (err, res) {
+          if (err) {
+            sendError(e, EmailSendError)
+          } else {
+            console.log(`Email to the user has been sent Successfully`)
+          }
+        })
       }
     })
 
