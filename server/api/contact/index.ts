@@ -15,6 +15,12 @@ const transporter = createTransport({
   },
 } as TransportOptions)
 
+const EmailSendError = createError({
+  statusCode: 400,
+  statusMessage: `Can't able to send email`,
+  data: {},
+})
+
 export default defineEventHandler(async (e) => {
   const { method } = e.node.req
   if (method === 'GET') {
@@ -33,8 +39,6 @@ export default defineEventHandler(async (e) => {
       html: `${mailTemplateHead}${body.html}${mailTemplateFooter}`,
     }
 
-    // console.log(mailOptions)
-
     const mailToOptions = {
       from: `"Kathirr007" <${
         isProd ? process.env.CONTACTMAIL : config.CONTACTMAIL
@@ -47,29 +51,24 @@ export default defineEventHandler(async (e) => {
       html: 'Thank you for contacting us',
     }
 
-    const EmailSendError = createError({
-      statusCode: 400,
-      statusMessage: `Can't able to send email`,
-      data: {},
-    })
-
-    await transporter.sendMail(mailOptions, function (err, res) {
-      if (err) {
-        console.log(err)
-        sendError(e, EmailSendError)
-      } else {
-        console.log(`Email has been sent Successfully`)
-        transporter.sendMail(mailToOptions, function (err, res) {
-          if (err) {
-            console.log(err)
-            sendError(e, EmailSendError)
-          } else {
-            console.log(`Email to the user has been sent Successfully`)
-          }
-        })
-      }
-    })
+    await sendEmail(e, mailOptions, false)
+    await sendEmail(e, mailToOptions, true)
 
     return {}
   }
 })
+
+async function sendEmail(e: any, mailOptions: any, toUser = false) {
+  try {
+    const mail = await transporter.sendMail(mailOptions)
+    console.log(
+      `${
+        toUser
+          ? 'Email to the user has been sent Successfully'
+          : 'Email has been sent Successfully'
+      } `
+    )
+  } catch (error) {
+    sendError(e, EmailSendError)
+  }
+}
