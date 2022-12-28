@@ -8,6 +8,8 @@ import { capitalize } from '~/utils/str'
 import { ContactFormSchema } from '~~/types/contact.type'
 import ToastMessage from '@/components/ToastMessage.vue'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 // composable
 const { t } = useLang()
 const screen = useScreen()
@@ -451,7 +453,11 @@ const onSubmit = handleSubmit(async (values) => {
                           </div>
                         </form>
                       </ClientOnly>
-                      <div id="user-contact" class="user-contact">
+                      <div
+                        id="user-contact"
+                        class="user-contact"
+                        :class="{ hidden: isProd }"
+                      >
                         <EmailsUserContact
                           ref="userContactRef"
                           :form="values"
