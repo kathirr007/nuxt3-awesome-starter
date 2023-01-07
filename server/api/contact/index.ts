@@ -69,6 +69,7 @@ async function sendEmail(e: any, mailOptions: any, toUser = false) {
       } `
     )
   } catch (error) {
+    console.log(error)
     sendError(e, EmailSendError)
   }
 }
