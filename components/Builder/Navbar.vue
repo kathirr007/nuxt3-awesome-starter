@@ -107,10 +107,11 @@ const toggleOptions = (show?: boolean) => {
               @click="toggleOptions()"
             >
               <span
-                class="flex items-center text-gray-600 dark:text-gray-300 text-sm"
+                class="flex items-center text-gray-600 dark:text-gray-300 text-xl"
                 aria-hidden="true"
               >
-                <icon-fa-solid:ellipsis-v />
+                <!-- <icon-fa-solid:ellipsis-v /> -->
+                <icon-mingcute:menu-fill />
               </span>
             </button>
           </div>

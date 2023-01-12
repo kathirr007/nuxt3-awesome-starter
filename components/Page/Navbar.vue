@@ -66,7 +66,7 @@ const menus = computed((): IMenuItem[] => [
     ],
   },
   { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
-  { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
+  { type: 'link', text: t('pages.gallery.nav'), route: { name: 'gallery' } },
   {
     type: 'submenu',
     text: t('pages.post.nav'),
@@ -499,9 +499,15 @@ const menus = computed((): IMenuItem[] => [
                   v-else-if="item.type === 'button'"
                   :text="item.text"
                   size="xs"
-                  class="font-extrabold capitalize"
+                  class="font-extrabold capitalize !text-white font-medium"
                   :to="item.route ? item.route : undefined"
                   :href="item.href ? item.href : undefined"
+                  @click="
+                    () => {
+                      removeActiveClass()
+                      toggleOptions(false)
+                    }
+                  "
                 />
               </li>
             </ul>

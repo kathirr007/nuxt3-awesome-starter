@@ -18,6 +18,10 @@ pages:
     btnText: Enquire Today
     title: contact elite solar solutions
     description: contact us description
+  gallery:
+    nav: gallery
+    title: elite solar solutions gallery
+    description: gallery description
   services:
     nav: services
     pageTitle: services
